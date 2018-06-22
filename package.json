@@ -1,0 +1,27 @@
+{
+  "name": "gallery",
+  "version": "1.0.0",
+  "description": "In this exercise I practice HTML and CSS",
+  "main": "server.js",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "npm": "^6.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DownTownScarf7/gallery.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DownTownScarf7/gallery/issues"
+  },
+  "homepage": "https://github.com/DownTownScarf7/gallery#readme"
+}
