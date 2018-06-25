@@ -6,20 +6,22 @@
     <title>DTS7 Gallery</title>
   </head>
   <body>
-    <div class="main">
-      <div class="main-gallery">
-        <button class="btn left" type="submit">
-          <img src="../assets/arrow.svg" alt="left">
+    <div id="main">
+      <div id="main-gallery">
+        <button id="left" class="btn" type="submit">
+          <img class="arrow" src="../assets/arrow.svg" alt="left">
         </button>
-        <div class="big-pic">
-          <img class="showed" src=<%= pictures[0].path %> alt="Failed to load picture">
+        <div id="big-pic">
+          <img id="selected" src=<%= pictures[0].path %> alt="Failed to load picture">
         </div>
-        <button class="btn right" type="submit">
-          <img src="../assets/arrow.svg" alt="right">
+        <button id="right" class="btn" type="submit">
+          <img class="arrow" src="../assets/arrow.svg" alt="right">
         </button>
       </div>
-      <div class="sub-gallery">
-        <!--small pics-->
+      <div id="sub-gallery">
+        <% pictures.forEach(elem => { %>
+          <img class="thumbnail" src=<%= elem.path %> alt=<%= elem.name %>>
+        <% }); %>
       </div>
     </div>
     <script src="static/script.js"></script>
