@@ -3,7 +3,7 @@
   margin: 0;
 }
 
-.main {
+#main {
   position: absolute;
   background: #EFEFBB;
   background: -webkit-linear-gradient(to top, #D4D3DD, #EFEFBB);
@@ -14,7 +14,7 @@
   height: 100vh;
 }
 
-.main-gallery {
+#main-gallery {
   display: flex;
   position: absolute;
   top: 16%;
@@ -39,15 +39,15 @@
   box-shadow: 1px  #6b6b6b;
 }
 
-.btn img {
+.btn .arrow {
   opacity: 1;
 }
 
-.btn img:hover {
+.btn:hover .arrow {
   opacity: 0.3;
 }
 
-.right {
+#right {
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -56,7 +56,7 @@
   -ms-filter: "FlipH";
 }
 
-.big-pic {
+#big-pic {
   background-color: #6b6b6b;
   justify-content: center;
   align-content: center;
@@ -67,7 +67,7 @@
   overflow: hidden;
 }
 
-.showed {
+#selected {
   align-items: baseline;
   align-self: center;
   display: flex; 
@@ -77,4 +77,15 @@
   background-size: cover;
   align-items: flex-end;
   border-radius: 8px;
+}
+
+#sub-gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.thumbnail {
+  display: flex;
+  width: 10%;
+  height: 8%;
 }
