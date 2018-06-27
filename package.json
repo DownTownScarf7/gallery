@@ -4,7 +4,6 @@
   "description": "In this exercise I practice HTML and CSS",
   "main": "server.js",
   "dependencies": {
-    "ejs": "^2.6.1",
     "express": "^4.16.3",
     "npm": "^6.1.0"
   },
