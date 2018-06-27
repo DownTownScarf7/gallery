@@ -8,7 +8,7 @@ const express = require('express'),
       pictures = [];
 
 files.forEach(elem => {
-  pictures.push({ path: `./pics/${elem}`, title: elem.substring(0, elem.indexOf('.')), desc: 'testDesc' });
+  pictures.push({ path: `./pics/${elem}`, title: elem.substring(0, elem.indexOf('.')) });
 });
 
 app.use('/assets', express.static('assets'));

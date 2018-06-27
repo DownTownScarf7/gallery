@@ -82,13 +82,6 @@
 #sub-gallery {
   display: flex;
   flex-wrap: wrap;
-  height: 50px;
-  background-color: #ffffff;
-}
-
-.thumbnail {
-  width: 100px;
-  height: 50px;
 }
 
 .thumbnail:hover {

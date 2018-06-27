@@ -1,14 +1,27 @@
 'use strict';
 
-const selected = document.querySelector('#selected');
-let pictures = [
-      { path: './pics/asd.jpg', title: 'testTitle', desc: 'testDesc' },
-      { path: './pics/asd2.jpg', title: 'testTitle', desc: 'testDesc' },
-      { path: './pics/cli.png', title: 'testTitle', desc: 'testDesc' },
-      { path: './pics/ever-other.png', title: 'testTitle', desc: 'testDesc' },
-      { path: './pics/float-2.gif', title: 'testTitle', desc: 'testDesc' },
-    ],
-    id = 0;
+const selected = document.querySelector('#selected'),
+  httpRequest = new XMLHttpRequest();
+let pictures = [],
+  id = 0;
+
+httpRequest.open('GET', `https://api.giphy.com/v1/gifs/search?api_key=FnNNMzbs5Tzy717siUEsfZiKvJfbpgdC&q=scenery&limit=10&offset=0&rating=G&lang=en`, true);
+httpRequest.onload = () => {
+  const res = JSON.parse(httpRequest.responseText);
+
+  res.data.forEach((elem, index) => {
+    const temp = document.createElement('img');
+    pictures.push({ id: index, static: elem.images.fixed_width_still.url, original: elem.images.original.url });
+    document.querySelector('#sub-gallery').appendChild(temp);
+    temp.setAttribute('src', elem.images.fixed_width_still.url);
+    temp.classList.add('thumbnail');
+    temp.addEventListener('click', () => {
+      document.querySelector('#selected').setAttribute('src', elem.images.original.url);
+      id = index;
+    });
+  });
+};
+httpRequest.send();
 
 document.body.addEventListener('keydown', event => {
   switch (event.keyCode) {
@@ -27,15 +40,7 @@ document.body.addEventListener('keydown', event => {
       }
       break;
   }
-  selected.setAttribute('src', pictures[id].path);
-});
-
-pictures.forEach(elem => {
-  const temp = document.createElement('img');
-  document.querySelector('#sub-gallery').appendChild(temp);
-  temp.setAttribute('src', elem.path);
-  temp.onclick = () => { console.log('test'); }
-  temp.classList.add('thumbnail');
+  selected.setAttribute('src', pictures[id].original);
 });
 
 document.querySelector('#left').onclick = () => {
@@ -44,7 +49,7 @@ document.querySelector('#left').onclick = () => {
   } else {
     id = pictures.length - 1;
   }
-  selected.setAttribute('src', pictures[id].path);
+  selected.setAttribute('src', pictures[id].original);
 }
 
 document.querySelector('#right').onclick = () => {
@@ -53,5 +58,5 @@ document.querySelector('#right').onclick = () => {
   } else {
     id = 0;
   }
-  selected.setAttribute('src', pictures[id].path);
+  selected.setAttribute('src', pictures[id].original);
 }
